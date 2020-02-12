@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.2.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+
+  <groupId>com.dell.services.quicksilver</groupId>
+  <artifactId>notifications-obd-sms-response-service</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>notifications-obd-sms-response-service</name>
+  <description>Receive OBD sms Response</description>
+
+  <properties>
+    <!--    <sonar.host.url>http://localhost:9000</sonar.host.url>-->
+    <!--    <sonar.login>64aaba29ec0da7085754684815a31e7d7c252ed0</sonar.login>-->
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.coveo</groupId>
+        <artifactId>fmt-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>coverage</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <dependencies>
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-actuator</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-amqp</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-batch</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-cache</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-cloud-connectors</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+    <!--		</dependency>-->
+    		<dependency>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+    		</dependency>
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-data-redis</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-integration</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-mail</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-oauth2-client</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-quartz</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.boot</groupId>-->
+    <!--			<artifactId>spring-boot-starter-security</artifactId>-->
+    <!--		</dependency>-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+    </dependency>
+    <!--		<dependency>-->
+    <!--			<groupId>io.pivotal.spring.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>io.pivotal.spring.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-services-starter-config-client</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>io.pivotal.spring.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-services-starter-service-registry</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.liquibase</groupId>-->
+    <!--			<artifactId>liquibase-core</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-bus</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-cloudfoundry-discovery</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-config</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-oauth2</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-openfeign</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-security</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-sleuth</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-starter-zipkin</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-stream</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-stream-reactive</artifactId>-->
+    <!--		</dependency>-->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-configuration-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!--		<dependency>-->
+    <!--			<groupId>de.flapdoodle.embed</groupId>-->
+    <!--			<artifactId>de.flapdoodle.embed.mongo</artifactId>-->
+    <!--			<scope>test</scope>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>io.projectreactor</groupId>-->
+    <!--			<artifactId>reactor-test</artifactId>-->
+    <!--			<scope>test</scope>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.batch</groupId>-->
+    <!--			<artifactId>spring-batch-test</artifactId>-->
+    <!--			<scope>test</scope>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.cloud</groupId>-->
+    <!--			<artifactId>spring-cloud-stream-test-support</artifactId>-->
+    <!--			<scope>test</scope>-->
+    <!--		</dependency>-->
+    <!--		<dependency>-->
+    <!--			<groupId>org.springframework.security</groupId>-->
+    <!--			<artifactId>spring-security-test</artifactId>-->
+    <!--			<scope>test</scope>-->
+    <!--		</dependency>-->
+  </dependencies>
+</project>

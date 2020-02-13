@@ -1,0 +1,83 @@
+{
+	"key": "b5576f6f-9347-428b-8d94-9dae91ae5577",
+	"metaData": {
+		"icon": "images/nicIcon.jpg",
+		"iconSmall": "images/nicIcon.jpg"
+	},
+	"type": "RESTDECISION",
+	"lang": {
+		"en-US": {
+			"name": "Custom Split",
+			"description": "Custom Split activity that makes a decision based on data from a custom application"
+		}
+	},
+	"workflowApiVersion": "1.1",
+	"configurationArguments": {
+		"applicationExtensionKey": "FC66215E-5821-4F01-9B0E-A90D16E38981",
+		"save": {
+			"url": "https://obd-response-service.herokuapp.com/obd/save",
+			"verb": "POST",
+			"body": "",
+			"useJwt": false
+		},
+		"publish": {
+			"url": "https://obd-response-service.herokuapp.com/obd/publish",
+			"verb": "POST",
+			"body": "",
+			"useJwt": false
+		},
+		"validate": {
+			"url": "https://obd-response-service.herokuapp.com/obd/validate",
+			"verb": "POST",
+			"body": "",
+			"useJwt": false
+		}
+	},
+	"wizardSteps": [
+		{"key": "eventdefinitionkey", "label": "Event Definition Key"}
+	],
+	"outcomes": [
+		{
+			"arguments": {
+				"branchResult": "true"
+			},
+			"metaData": {
+				"label": "If true"
+			}
+		},
+		{
+			"arguments": {
+				"branchResult": "false"
+			},
+			"metaData": {
+				"label": "If false"
+			}
+		}
+	],
+	"userInterfaces": {
+		"runningModal": {
+			"url": "runningModal.html"
+		},
+		"runningHover": {
+			"url": "runningHover.html"
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [],
+			"outArguments": [],
+			"url": "https://obd-response-service.herokuapp.com/obd/checksmsresponse",
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": false,
+			"timeout": 90000
+		}
+	},
+	"edit": {
+		"url": "https://obd-response-service.herokuapp.com",
+		"height": 200,
+		"width": 500
+	}
+}

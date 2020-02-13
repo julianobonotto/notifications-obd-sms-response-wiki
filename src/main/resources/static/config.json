@@ -1,13 +1,13 @@
 {
-	"key": "eb06adb5-269a-4584-988c-6ab72389ef48",
+	"key": "fb59b6e7-8f92-4f4f-a2e8-77df31b08925",
 	"metaData": {
-		"icon": "images/nicIcon.jpg",
-		"iconSmall": "images/nicIcon.jpg"
+		"icon": "images/dellIcon.jpg",
+		"iconSmall": "images/dellIcon.jpg"
 	},
 	"type": "RESTDECISION",
 	"lang": {
 		"en-US": {
-			"name": "Custom Split",
+			"name": "Custom Split Wiki",
 			"description": "Custom Split activity that makes a decision based on data from a custom application"
 		}
 	},
@@ -15,19 +15,19 @@
 	"configurationArguments": {
 		"applicationExtensionKey": "FC66215E-5821-4F01-9B0E-A90D16E38981",
 		"save": {
-			"url": "https://obd-response-service.herokuapp.com/obd/save",
+			"url": "https://obd-sms-response-wiki.herokuapp.com/obd/save",
 			"verb": "POST",
 			"body": "",
 			"useJwt": false
 		},
 		"publish": {
-			"url": "https://obd-response-service.herokuapp.com/obd/publish",
+			"url": "https://obd-sms-response-wiki.herokuapp.com/obd/publish",
 			"verb": "POST",
 			"body": "",
 			"useJwt": false
 		},
 		"validate": {
-			"url": "https://obd-response-service.herokuapp.com/obd/validate",
+			"url": "https://obd-sms-response-wiki.herokuapp.com/obd/validate",
 			"verb": "POST",
 			"body": "",
 			"useJwt": false
@@ -66,7 +66,7 @@
 		"execute": {
 			"inArguments": [{}],
 			"outArguments": [],
-			"url": "https://obd-response-service.herokuapp.com/obd/checksmsresponse",
+			"url": "https://obd-sms-response-wiki.herokuapp.com/obd/checksmsresponse",
 			"verb": "POST",
 			"body": "",
 			"header": "",
@@ -76,7 +76,7 @@
 		}
 	},
 	"edit": {
-		"url": "https://obd-response-service.herokuapp.com/index.html",
+		"url": "https://obd-sms-response-wiki.herokuapp.com/index.html",
 		"height": 200,
 		"width": 500
 	}
